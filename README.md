@@ -1,3 +1,3 @@
 # nvim-config
 
-## The most useless nvim config ever create on this entire planet.
+## The most useless nvim config ever created on the entire planet.
