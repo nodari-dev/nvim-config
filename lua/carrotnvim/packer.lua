@@ -10,14 +10,15 @@ return require('packer').startup(function(use)
 		'nvim-telescope/telescope.nvim', tag = '0.1.5',
 		-- or                            , branch = '0.1.x',
 		requires = { {'nvim-lua/plenary.nvim'} }
-	}
-	use{
-		"felipeagc/fleet-theme-nvim",
-		config = function() vim.cmd("colorscheme fleet") end
+	}	
+	use {
+		'xiantang/darcula-dark.nvim',
+		requires = {"nvim-treesitter/nvim-treesitter"}
 	}
 	use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
 	use('theprimeagen/harpoon')
 	use('mbbill/undotree')
+	use('sidebar-Nvim/sidebar.nvim')
 	use {
 		'VonHeikemen/lsp-zero.nvim',
 		branch = 'v3.x',
