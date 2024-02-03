@@ -8,6 +8,8 @@ lsp.on_attach(function(client, bufnr)
   vim.keymap.set('n', '<leader>vr', '<cmd>lua vim.lsp.buf.references()<cr>', opts)
 end)
 
+vim.filetype.add({extension = {templ = "templ"}})
+
 require('mason').setup({})
 require('mason-lspconfig').setup({
   -- Replace the language servers listed here
