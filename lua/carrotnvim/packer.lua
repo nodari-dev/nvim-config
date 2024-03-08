@@ -11,6 +11,7 @@ return require('packer').startup(function(use)
 		'xiantang/darcula-dark.nvim',
 		requires = {"nvim-treesitter/nvim-treesitter"}
 	}
+	use ("Yggdroot/indentLine")
 	use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
 	use('theprimeagen/harpoon')
 	use('mbbill/undotree')
