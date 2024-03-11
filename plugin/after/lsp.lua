@@ -22,4 +22,8 @@ require('mason-lspconfig').setup({
 		lsp.default_setup,
 	}
 })
-require('lspconfig').lua_ls.setup({})
+require('lspconfig').lua_ls.setup({
+	    on_attach = function(client, bufnr)
+        vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+    end
+})
