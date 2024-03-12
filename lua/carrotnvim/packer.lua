@@ -2,7 +2,7 @@ vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function(use)
 	use 'wbthomason/packer.nvim'
-	use('aktersnurra/no-clown-fiesta.nvim')
+	use {"mcchrish/zenbones.nvim", requires = "rktjmp/lush.nvim"}
 	use ("lewis6991/gitsigns.nvim")
 	use {
 		'nvim-telescope/telescope.nvim', tag = '0.1.5',
