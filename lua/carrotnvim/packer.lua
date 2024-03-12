@@ -2,6 +2,7 @@ vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function(use)
 	use 'wbthomason/packer.nvim'
+	use('aktersnurra/no-clown-fiesta.nvim')
 	use ("lewis6991/gitsigns.nvim")
 	use {
 		'nvim-telescope/telescope.nvim', tag = '0.1.5',
@@ -10,10 +11,7 @@ return require('packer').startup(function(use)
 	use('neovim/nvim-lspconfig')
 	use('jose-elias-alvarez/null-ls.nvim')
 	use('MunifTanjim/eslint.nvim')
-	use {
-		'xiantang/darcula-dark.nvim',
-		requires = {"nvim-treesitter/nvim-treesitter"}
-	}
+	use('aktersnurra/no-clown-fiesta.nvim')
 	use ("Yggdroot/indentLine")
 	use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
 	use('theprimeagen/harpoon')

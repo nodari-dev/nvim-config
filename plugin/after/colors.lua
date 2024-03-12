@@ -1,6 +1,5 @@
-function Theme(color)
-	color = color or "darcula-dark"
-	vim.cmd.colorscheme(color)
+function Theme()
+	vim.cmd[[colorscheme no-clown-fiesta]]
   	vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
   	vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
 
