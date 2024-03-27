@@ -3,7 +3,7 @@ require('hlchunk').setup({
         chars = { "│" },
 
         style = {
-            "#777777",
+            "#333333",
         },
     },
     blank = {
