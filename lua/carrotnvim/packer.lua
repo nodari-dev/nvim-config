@@ -52,4 +52,5 @@ return require('packer').startup(function(use)
 	}
 	use('prettier/vim-prettier')
 	use("shellRaining/hlchunk.nvim")
+	use("mfussenegger/nvim-jdtls")
 end)
