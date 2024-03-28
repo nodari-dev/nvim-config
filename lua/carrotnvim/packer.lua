@@ -8,6 +8,8 @@ return require('packer').startup(function(use)
 		'nvim-telescope/telescope.nvim', tag = '0.1.5',
 		requires = { {'nvim-lua/plenary.nvim'} }
 	}
+	use('romgrk/barbar.nvim')
+	use("nvim-tree/nvim-web-devicons")
 	use('neovim/nvim-lspconfig')
 	use('jose-elias-alvarez/null-ls.nvim')
 	use('MunifTanjim/eslint.nvim')
