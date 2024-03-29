@@ -16,7 +16,6 @@ return require('packer').startup(function(use)
 	use('aktersnurra/no-clown-fiesta.nvim')
 	use ("Yggdroot/indentLine")
 	use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
-	use('theprimeagen/harpoon')
 	use('mbbill/undotree')
 	use('sidebar-Nvim/sidebar.nvim')
 	use {
