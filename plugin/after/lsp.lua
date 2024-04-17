@@ -15,8 +15,6 @@ vim.filetype.add({ extension = { templ = "templ" } })
 
 require('mason').setup({})
 require('mason-lspconfig').setup({
-	-- Replace the language servers listed here
-	-- with the ones you want to install
 	ensure_installed = { 
 		'tsserver', 'kotlin_language_server', 'jdtls', 'clangd',
 		'cssls', 'html', 'jsonls', 'lua_ls', 'templ',
