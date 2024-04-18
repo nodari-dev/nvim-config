@@ -22,8 +22,7 @@ require('mason').setup({})
 require('mason-lspconfig').setup({
 	ensure_installed = {
 		'tsserver', 'kotlin_language_server', 'jdtls', 'clangd',
-		'cssls', 'html', 'jsonls', 'lua_ls', 'sqlls',
-		'postgres_lsp', 'yaml-language-server'
+		'cssls', 'html', 'jsonls', 'lua_ls', 'sqlls', 'yamlls'
 	},
 	handlers = {
 		function(server_name)
@@ -75,9 +74,6 @@ require('mason-lspconfig').setup({
 		end,
 		sqlls = function()
 			require'lspconfig'.sqlls.setup{}
-		end,
-		postgres_lsp = function()
-			require'lspconfig'.postgres_lsp.setup{}
 		end,
 		yamlls = function()
 			require'lspconfig'.yamlls.setup{}
