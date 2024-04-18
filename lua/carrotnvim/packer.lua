@@ -8,7 +8,6 @@ return require('packer').startup(function(use)
 		requires = { {'nvim-lua/plenary.nvim'} }
 	}
 	use('romgrk/barbar.nvim')
-	use("nvim-tree/nvim-web-devicons")
 	use('jose-elias-alvarez/null-ls.nvim')
 	use('MunifTanjim/eslint.nvim')
 	use ("Yggdroot/indentLine")
@@ -40,10 +39,7 @@ return require('packer').startup(function(use)
 		'nvim-lualine/lualine.nvim',
 		requires = { 'nvim-tree/nvim-web-devicons', opt = true }
 	}
-	use {
-		"windwp/nvim-autopairs",
-		config = function() require("nvim-autopairs").setup {} end
-	}
+	use ("cohama/lexima.vim")
 	use('prettier/vim-prettier')
 	use("shellRaining/hlchunk.nvim")
 	use("mfussenegger/nvim-jdtls")

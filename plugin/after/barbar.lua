@@ -1,5 +1,9 @@
+vim.g.barbar_auto_setup = false
 local map = vim.api.nvim_set_keymap
-local opts = { noremap = true, silent = true }
+local opts = {
+	noremap = true,
+	silent = true,
+}
 
 map('n', '<leader>h', '<Cmd>BufferPrevious<CR>', opts)
 map('n', '<leader>l', '<Cmd>BufferNext<CR>', opts)
@@ -13,3 +17,13 @@ map('n', '<leader>7', '<Cmd>BufferGoto 7<CR>', opts)
 map('n', '<leader>8', '<Cmd>BufferGoto 8<CR>', opts)
 map('n', '<leader>9', '<Cmd>BufferGoto 9<CR>', opts)
 map('n', '<leader>w', '<Cmd>BufferClose<CR>', opts)
+
+
+require 'barbar'.setup {
+	icons = {
+		filetype = {
+			custom_colors = false,
+			enabled = false
+		}
+	}
+}
