@@ -23,7 +23,7 @@ require('mason').setup({})
 require('mason-lspconfig').setup({
 	ensure_installed = {
 		'tsserver', 'kotlin_language_server', 'jdtls', 'clangd',
-		'cssls', 'html', 'jsonls', 'lua_ls', 'sqlls', 'yamlls'
+		'cssls', 'html', 'jsonls', 'lua_ls', 'sqlls', 'yamlls', 'graphql'
 	},
 	handlers = {
 		function(server_name)
@@ -78,6 +78,9 @@ require('mason-lspconfig').setup({
 		end,
 		yamlls = function()
 			require'lspconfig'.yamlls.setup{}
+		end,
+		graphql = function()
+			require'lspconfig'.graphql.setup{}
 		end
 	}
 })

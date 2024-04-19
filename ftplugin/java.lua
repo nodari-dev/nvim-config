@@ -1,7 +1,7 @@
 local home = os.getenv 'HOME'
-local workspace_path = home .. '/.local/share/nvim/jdtls-workspace/'
 local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:t')
-local workspace_dir = workspace_path .. project_name
+local path_to_holy_molly_java = home .. '/.local/share'
+local workspace_dir = path_to_holy_molly_java .. '/nvim/jdtls-workspace/' .. project_name
 
 local config_for_os = vim.fn.has('macunix') and 'config_mac' or 'confix_linux'
 
@@ -11,7 +11,6 @@ if not status then
 end
 
 local extendedClientCapabilities = jdtls.extendedClientCapabilities
-
 local config = {
 	cmd = {
 		'java',
@@ -24,9 +23,9 @@ local config = {
 		'--add-modules=ALL-SYSTEM',
 		'--add-opens', 'java.base/java.util=ALL-UNNAMED',
 		'--add-opens', 'java.base/java.lang=ALL-UNNAMED',
-		'-javaagent:' .. home .. '/Documents/java-lombok/lombok.jar',
-		'-jar', vim.fn.glob(home .. '/Documents/java-lsp/plugins/org.eclipse.equinox.launcher_1.6.800.v20240304-1850.jar'),
-		'-configuration', home .. '/Documents/java-lsp/' .. config_for_os,
+		'-javaagent:' .. path_to_holy_molly_java .. '/java-lombok/lombok.jar',
+		'-jar', vim.fn.glob(path_to_holy_molly_java .. '/java-lsp/plugins/org.eclipse.equinox.launcher_1.6.800.v20240304-1850.jar'),
+		'-configuration', path_to_holy_molly_java.. '/java-lsp/' .. config_for_os,
 		'-data', workspace_dir,
 	},
 	root_dir = require('jdtls.setup').find_root({ '.git', 'mvnw', 'gradlew' }),
