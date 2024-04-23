@@ -22,65 +22,51 @@ capabilities.textDocument.completion.completionItem.snippetSupport = true
 require('mason').setup({})
 require('mason-lspconfig').setup({
 	ensure_installed = {
-		'tsserver', 'kotlin_language_server', 'jdtls', 'clangd',
-		'cssls', 'html', 'jsonls', 'lua_ls', 'sqlls', 'yamlls', 'graphql'
-	},
-	handlers = {
-		function(server_name)
-			require('lspconfig')[server_name].setup({})
-		end,
-		lua_ls = function()
-			require('lspconfig').lua_ls.setup({
-				capabilities = lsp_capabilities,
-				settings = {
-					Lua = {
-						runtime = {
-							version = 'LuaJIT'
-						},
-						diagnostics = {
-							globals = { 'vim' },
-						},
-						workspace = {
-							library = {
-								vim.env.VIMRUNTIME,
-							}
-						}
-					}
+		'tsserver',
+		'kotlin_language_server',
+		'jdtls',
+		'clangd',
+		'cssls',
+		'html',
+		'jsonls',
+		'lua_ls',
+		'sqlls',
+		'yamlls',
+		'graphql'
+	}
+})
+
+require 'lspconfig'.kotlin_language_server.setup {}
+
+require 'lspconfig'.cssls.setup {
+	capabilities = capabilities,
+}
+require 'lspconfig'.jsonls.setup {
+	capabilities = capabilities
+}
+require 'lspconfig'.html.setup {
+	capabilities = capabilities,
+}
+require 'lspconfig'.clangd.setup {}
+require 'lspconfig'.tsserver.setup {}
+require 'lspconfig'.sqlls.setup {}
+require 'lspconfig'.yamlls.setup {}
+require 'lspconfig'.graphql.setup {}
+require 'lspconfig'.lua_ls.setup({
+	capabilities = lsp_capabilities,
+	settings = {
+		Lua = {
+			runtime = {
+				version = 'LuaJIT'
+			},
+			diagnostics = {
+				globals = { 'vim' },
+			},
+			workspace = {
+				library = {
+					vim.env.VIMRUNTIME,
 				}
-			})
-		end,
-		tsserver = function()
-			require 'lspconfig'.tsserver.setup {}
-		end,
-		kotlin_language_server = function()
-			require 'lspconfig'.kotlin_language_server.setup {}
-		end,
-		clangd = function()
-			require 'lspconfig'.clangd.setup {}
-		end,
-		cssls = function()
-			require 'lspconfig'.cssls.setup {
-				capabilities = capabilities,
 			}
-		end,
-		html = function()
-			require 'lspconfig'.html.setup {
-				capabilities = capabilities,
-			}
-		end,
-		jsonls = function()
-			require 'lspconfig'.jsonls.setup {
-				capabilities = capabilities
-			}
-		end,
-		sqlls = function()
-			require'lspconfig'.sqlls.setup{}
-		end,
-		yamlls = function()
-			require'lspconfig'.yamlls.setup{}
-		end,
-		graphql = function()
-			require'lspconfig'.graphql.setup{}
-		end
+		}
 	}
 })
