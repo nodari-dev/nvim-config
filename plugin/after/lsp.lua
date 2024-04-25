@@ -1,23 +1,27 @@
-local lsp = require("lsp-zero")
+vim.api.nvim_create_autocmd('LspAttach', {
+  callback = function(args)
+    vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, { buffer = args.buf })
+    vim.keymap.set('n', '<C-s>', vim.lsp.buf.code_action, { buffer = args.buf })
+    vim.keymap.set('n', '<leader>vr', vim.lsp.buf.references, { buffer = args.buf })
+    vim.keymap.set('n', 'K', vim.lsp.buf.hover, { buffer = args.buf })
 
-lsp.on_attach(function(client, bufnr)
-	lsp.default_keymaps({ buffer = bufnr })
-	vim.keymap.set('n', '<C-p>', '<cmd>lua vim.diagnostic.goto_prev()<cr>', opts)
-	vim.keymap.set('n', '<C-n>', '<cmd>lua vim.diagnostic.goto_next()<cr>', opts)
-	vim.keymap.set('n', '<C-Space>', '<cmd>lua vim.lsp.buf.code_action()<cr>', opts)
-	vim.keymap.set('n', '<leader>vr', '<cmd>lua vim.lsp.buf.references()<cr>', opts)
-	vim.keymap.set('n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<cr>', opts)
-	vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
+
+	vim.api.nvim_buf_create_user_command(args.buf, 'Format', function(_)
 		vim.lsp.buf.format()
-	end, { desc = 'Format current buffer with LSP' })
-end)
+	end)
+  end,
+})
 
--- default capabilities
-local lsp_capabilities = require('cmp_nvim_lsp').default_capabilities()
 
--- html, css, etc.. capabilities
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities.textDocument.completion.completionItem.snippetSupport = true
+local cmp = require('cmp')
+local cmp_lsp = require("cmp_nvim_lsp")
+local lsp_capabilities = vim.tbl_deep_extend(
+	"force",
+	{},
+	vim.lsp.protocol.make_client_capabilities(),
+	cmp_lsp.default_capabilities())
+
+local lspconfig = require("lspconfig")
 
 require('mason').setup({})
 require('mason-lspconfig').setup({
@@ -33,40 +37,58 @@ require('mason-lspconfig').setup({
 		'sqlls',
 		'yamlls',
 		'graphql'
+	},
+	handlers = {
+		function (server_name)
+			lspconfig[server_name].setup {
+			capabilities = lsp_capabilities
+			}
+		end,
+		["lua_ls"] = function()
+			lspconfig.lua_ls.setup {
+				capabilities = lsp_capabilities,
+				settings = {
+					Lua = {
+					runtime = { version = "Lua 5.1" },
+						diagnostics = {
+							globals = { "vim", "it", "describe", "before_each", "after_each" },
+						}
+					}
+				}
+			}
+	end
 	}
 })
 
-require 'lspconfig'.kotlin_language_server.setup {}
+local cmp_select = { behavior = cmp.SelectBehavior.Select }
+cmp.setup({
+	snippet = {
+		expand = function(args)
+			require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
+		end,
+	},
 
-require 'lspconfig'.cssls.setup {
-	capabilities = capabilities,
-}
-require 'lspconfig'.jsonls.setup {
-	capabilities = capabilities
-}
-require 'lspconfig'.html.setup {
-	capabilities = capabilities,
-}
-require 'lspconfig'.clangd.setup {}
-require 'lspconfig'.tsserver.setup {}
-require 'lspconfig'.sqlls.setup {}
-require 'lspconfig'.yamlls.setup {}
-require 'lspconfig'.graphql.setup {}
-require 'lspconfig'.lua_ls.setup({
-	capabilities = lsp_capabilities,
-	settings = {
-		Lua = {
-			runtime = {
-				version = 'LuaJIT'
-			},
-			diagnostics = {
-				globals = { 'vim' },
-			},
-			workspace = {
-				library = {
-					vim.env.VIMRUNTIME,
-				}
-			}
-		}
-	}
+	mapping = cmp.mapping.preset.insert({
+		['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
+		['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
+		['<C-j>'] = cmp.mapping.confirm({ select = true })
+	}),
+
+	sources = cmp.config.sources({
+		{ name = 'nvim_lsp' },
+		{ name = 'luasnip' }, -- For luasnip users.
+	}, {
+		{ name = 'buffer' },
+	}),
+
+	vim.diagnostic.config({
+		float = {
+			focusable = false,
+			style = "minimal",
+			border = "rounded",
+			source = "always",
+			header = "",
+			prefix = "",
+		},
+	}),
 })
