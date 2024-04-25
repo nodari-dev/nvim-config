@@ -4,11 +4,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
     vim.keymap.set('n', '<C-s>', vim.lsp.buf.code_action, { buffer = args.buf })
     vim.keymap.set('n', '<leader>vr', vim.lsp.buf.references, { buffer = args.buf })
     vim.keymap.set('n', 'K', vim.lsp.buf.hover, { buffer = args.buf })
-
-
-	vim.api.nvim_buf_create_user_command(args.buf, 'Format', function(_)
-		vim.lsp.buf.format()
-	end)
   end,
 })
 

@@ -43,4 +43,5 @@ return require('packer').startup(function(use)
 	use "mfussenegger/nvim-dap"
 	use "folke/trouble.nvim"
 	use "j-hui/fidget.nvim"
+	use "tpope/vim-fugitive"
 end)
