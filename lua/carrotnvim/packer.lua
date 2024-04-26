@@ -36,7 +36,7 @@ return require('packer').startup(function(use)
 		'nvim-lualine/lualine.nvim',
 		requires = { 'nvim-tree/nvim-web-devicons', opt = true }
 	}
-	use ("cohama/lexima.vim")
+	use 'm4xshen/autoclose.nvim'
 	use('prettier/vim-prettier')
 	use("shellRaining/hlchunk.nvim")
 	use("mfussenegger/nvim-jdtls")
