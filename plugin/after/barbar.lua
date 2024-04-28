@@ -16,7 +16,7 @@ map('n', '<C-6>', '<Cmd>BufferGoto 6<CR>', opts)
 map('n', '<C-7>', '<Cmd>BufferGoto 7<CR>', opts)
 map('n', '<C-8>', '<Cmd>BufferGoto 8<CR>', opts)
 map('n', '<C-9>', '<Cmd>BufferGoto 9<CR>', opts)
-map('n', '<C-w>', '<Cmd>BufferClose<CR>', opts)
+map('n', '<C-q>', '<Cmd>BufferClose<CR>', opts)
 
 
 require 'barbar'.setup {
