@@ -8,7 +8,7 @@ local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = t
 
 vim.cmd([[
   set cursorline
-  highlight CursorLine ctermbg=NONE guibg=#212121
+  highlight CursorLine ctermbg=NONE guibg=#222831
   ]])
 vim.api.nvim_create_autocmd('TextYankPost', {
   callback = function()
