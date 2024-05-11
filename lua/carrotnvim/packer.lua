@@ -9,7 +9,6 @@ return require('packer').startup(function(use)
 	}
 	use('romgrk/barbar.nvim')
 	use('MunifTanjim/eslint.nvim')
-	use ("Yggdroot/indentLine")
 	use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
 	use('mbbill/undotree')
 	use {

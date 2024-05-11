@@ -59,6 +59,18 @@ require('mason-lspconfig').setup({
 			lspconfig.clangd.setup {
 				capabilities = lsp_capabilities,
 			}
+		end,
+		["kotlin_language_server"] = function()
+			local home = os.getenv 'HOME'
+			local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:t')
+			local path_to_holy_molly_kotlin = home .. '/.local/share'
+			local workspace_dir = path_to_holy_molly_kotlin .. '/nvim/kotlin-workspace/' .. project_name
+			lspconfig.kotlin_language_server.setup {
+				capabilities = lsp_capabilities,
+				{
+				  storagePath = workspace_dir
+			  }
+			}
 		end
 	}
 })
