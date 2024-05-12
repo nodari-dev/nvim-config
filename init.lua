@@ -6,10 +6,6 @@ vim.opt.shiftwidth = 4
 vim.wo.relativenumber = true
 local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
 
-vim.cmd([[
-  set cursorline
-  highlight CursorLine ctermbg=NONE guibg=#222831
-  ]])
 vim.api.nvim_create_autocmd('TextYankPost', {
   callback = function()
     vim.highlight.on_yank()
