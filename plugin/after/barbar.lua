@@ -24,6 +24,11 @@ require 'barbar'.setup {
 		filetype = {
 			custom_colors = false,
 			enabled = false
-		}
+		},
+		separator = { left = '▎', right = '' },
+
+		separator_at_end = true,
+
+		button = ""
 	}
 }
