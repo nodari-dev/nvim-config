@@ -34,6 +34,7 @@ require('mason-lspconfig').setup({
 		'sqlls',
 		'yamlls',
 		'graphql',
+		'jedi_language_server',
 		'vimls'
 	},
 	handlers = {
