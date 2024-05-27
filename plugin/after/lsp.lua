@@ -32,7 +32,6 @@ require('mason-lspconfig').setup({
 		'jsonls',
 		'lua_ls',
 		'sqlls',
-		'yamlls',
 		'graphql',
 		'jedi_language_server',
 		'vimls'
