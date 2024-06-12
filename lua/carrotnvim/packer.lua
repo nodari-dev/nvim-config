@@ -43,4 +43,5 @@ return require('packer').startup(function(use)
 	use "folke/trouble.nvim"
 	use "j-hui/fidget.nvim"
 	use "tpope/vim-fugitive"
+	use "lewis6991/gitsigns.nvim"
 end)
