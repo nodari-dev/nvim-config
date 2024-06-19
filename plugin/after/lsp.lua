@@ -34,7 +34,6 @@ require('mason-lspconfig').setup({
 		'sqlls',
 		'graphql',
 		'vimls',
-		'pylyzer'
 	},
 	handlers = {
 		function(server_name)
