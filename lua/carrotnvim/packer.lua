@@ -5,11 +5,11 @@ return require('packer').startup(function(use)
 	use "rebelot/kanagawa.nvim"
 	use {
 		'nvim-telescope/telescope.nvim', tag = '0.1.5',
-		requires = { {'nvim-lua/plenary.nvim'} }
+		requires = { { 'nvim-lua/plenary.nvim' } }
 	}
 	use('romgrk/barbar.nvim')
 	use('MunifTanjim/eslint.nvim')
-	use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
+	use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
 	use('mbbill/undotree')
 	use {
 		"williamboman/mason.nvim",
@@ -18,12 +18,12 @@ return require('packer').startup(function(use)
 	}
 	use {
 		"hrsh7th/cmp-nvim-lsp",
-        "hrsh7th/cmp-buffer",
-        "hrsh7th/cmp-path",
-        "hrsh7th/cmp-cmdline",
-        "hrsh7th/nvim-cmp",
-        "L3MON4D3/LuaSnip",
-        "saadparwaiz1/cmp_luasnip",
+		"hrsh7th/cmp-buffer",
+		"hrsh7th/cmp-path",
+		"hrsh7th/cmp-cmdline",
+		"hrsh7th/nvim-cmp",
+		"L3MON4D3/LuaSnip",
+		"saadparwaiz1/cmp_luasnip",
 	}
 	use {
 		'numToStr/Comment.nvim',
@@ -44,4 +44,7 @@ return require('packer').startup(function(use)
 	use "j-hui/fidget.nvim"
 	use "tpope/vim-fugitive"
 	use "lewis6991/gitsigns.nvim"
+	use "hrsh7th/vim-vsnip"
+	use 'hrsh7th/vim-vsnip-integ'
+	use 'hrsh7th/cmp-vsnip'
 end)

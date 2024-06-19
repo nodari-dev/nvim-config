@@ -33,9 +33,8 @@ require('mason-lspconfig').setup({
 		'lua_ls',
 		'sqlls',
 		'graphql',
-		'jedi_language_server',
 		'vimls',
-		'python-lsp-server'
+		'pylyzer'
 	},
 	handlers = {
 		function(server_name)
@@ -80,7 +79,8 @@ local cmp_select = { behavior = cmp.SelectBehavior.Select }
 cmp.setup({
 	snippet = {
 		expand = function(args)
-			require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
+			require('luasnip').lsp_expand(args.body)
+			vim.fn["vsnip#anonymous"](args.body)
 		end,
 	},
 
@@ -92,7 +92,8 @@ cmp.setup({
 
 	sources = cmp.config.sources({
 		{ name = 'nvim_lsp' },
-		{ name = 'luasnip' }, -- For luasnip users.
+		{ name = 'luasnip' },
+		{ name = 'vsnip' },
 	}, {
 		{ name = 'buffer' },
 	}),
