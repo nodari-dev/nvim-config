@@ -184,4 +184,4 @@ local opts = {
 	noremap = true,
 	silent = true,
 }
-map('n', '<c-f>', '<Cmd>Neotree toggle<CR>', opts)
+map('n', '<c-a>', '<Cmd>Neotree toggle<CR>', opts)
