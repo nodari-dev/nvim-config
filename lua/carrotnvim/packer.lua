@@ -2,7 +2,7 @@ vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function(use)
 	use 'wbthomason/packer.nvim'
-	use "rebelot/kanagawa.nvim"
+	use 'rose-pine/neovim'
 	use {
 		'nvim-telescope/telescope.nvim', tag = '0.1.5',
 		requires = { { 'nvim-lua/plenary.nvim' } }
@@ -47,13 +47,4 @@ return require('packer').startup(function(use)
 	use "hrsh7th/vim-vsnip"
 	use 'hrsh7th/vim-vsnip-integ'
 	use 'hrsh7th/cmp-vsnip'
-	use {
-	  "nvim-neo-tree/neo-tree.nvim",
-		branch = "v3.x",
-		requires = {
-		  "nvim-lua/plenary.nvim",
-		  "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
-		  "MunifTanjim/nui.nvim",
-		}
-	  }
 end)
