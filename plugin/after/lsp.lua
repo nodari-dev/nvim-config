@@ -24,8 +24,6 @@ require('mason').setup({})
 require('mason-lspconfig').setup({
 	ensure_installed = {
 		'tsserver',
-		'kotlin_language_server',
-		'jdtls',
 		'clangd',
 		'cssls',
 		'html',
@@ -34,7 +32,6 @@ require('mason-lspconfig').setup({
 		'lua_ls',
 		'sqlls',
 		'graphql',
-		'vimls',
 	},
 	handlers = {
 		function(server_name)
@@ -60,20 +57,34 @@ require('mason-lspconfig').setup({
 				capabilities = lsp_capabilities,
 			}
 		end,
-		["kotlin_language_server"] = function()
-			local home = os.getenv 'HOME'
-			local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:t')
-			local path_to_holy_molly_kotlin = home .. '/.local/share'
-			local workspace_dir = path_to_holy_molly_kotlin .. '/nvim/kotlin-workspace/' .. project_name
-			lspconfig.kotlin_language_server.setup {
-				capabilities = lsp_capabilities,
-				{
-				  storagePath = workspace_dir
-			  }
-			}
-		end
 	}
 })
+
+require'lspconfig'.tsserver.setup{}
+require'lspconfig'.pyright.setup{}
+require'lspconfig'.html.setup{}
+require'lspconfig'.clangd.setup{}
+require 'lspconfig'.lua_ls.setup {
+	on_init = function(client)
+		local path = client.workspace_folders[1].name
+
+		client.config.settings.Lua = vim.tbl_deep_extend('force', client.config.settings.Lua, {
+			runtime = {
+				version = 'LuaJIT'
+			},
+			workspace = {
+				checkThirdParty = false,
+				library = {
+					vim.env.VIMRUNTIME
+				}
+			}
+		})
+	end,
+	settings = {
+		Lua = {}
+	}
+}
+
 
 local cmp_select = { behavior = cmp.SelectBehavior.Select }
 cmp.setup({

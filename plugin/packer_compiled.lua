@@ -85,6 +85,11 @@ _G.packer_plugins = {
     path = "/Users/I572177/.local/share/nvim/site/pack/packer/start/LuaSnip",
     url = "https://github.com/L3MON4D3/LuaSnip"
   },
+  ["arctic.nvim"] = {
+    loaded = true,
+    path = "/Users/I572177/.local/share/nvim/site/pack/packer/start/arctic.nvim",
+    url = "https://github.com/rockyzhang24/arctic.nvim"
+  },
   ["autoclose.nvim"] = {
     loaded = true,
     path = "/Users/I572177/.local/share/nvim/site/pack/packer/start/autoclose.nvim",
@@ -145,15 +150,15 @@ _G.packer_plugins = {
     path = "/Users/I572177/.local/share/nvim/site/pack/packer/start/hlchunk.nvim",
     url = "https://github.com/shellRaining/hlchunk.nvim"
   },
-  ["kanagawa-paper.nvim"] = {
-    loaded = true,
-    path = "/Users/I572177/.local/share/nvim/site/pack/packer/start/kanagawa-paper.nvim",
-    url = "https://github.com/sho-87/kanagawa-paper.nvim"
-  },
   ["lualine.nvim"] = {
     loaded = true,
     path = "/Users/I572177/.local/share/nvim/site/pack/packer/start/lualine.nvim",
     url = "https://github.com/nvim-lualine/lualine.nvim"
+  },
+  ["lush.nvim"] = {
+    loaded = true,
+    path = "/Users/I572177/.local/share/nvim/site/pack/packer/start/lush.nvim",
+    url = "https://github.com/rktjmp/lush.nvim"
   },
   ["mason-lspconfig.nvim"] = {
     loaded = true,
@@ -164,11 +169,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/I572177/.local/share/nvim/site/pack/packer/start/mason.nvim",
     url = "https://github.com/williamboman/mason.nvim"
-  },
-  neovim = {
-    loaded = true,
-    path = "/Users/I572177/.local/share/nvim/site/pack/packer/start/neovim",
-    url = "https://github.com/rose-pine/neovim"
   },
   ["nvim-cmp"] = {
     loaded = true,
@@ -245,6 +245,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/I572177/.local/share/nvim/site/pack/packer/start/vim-vsnip-integ",
     url = "https://github.com/hrsh7th/vim-vsnip-integ"
+  },
+  ["vscode.nvim"] = {
+    loaded = true,
+    path = "/Users/I572177/.local/share/nvim/site/pack/packer/start/vscode.nvim",
+    url = "https://github.com/Mofiqul/vscode.nvim"
   }
 }
 

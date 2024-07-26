@@ -1,5 +1,5 @@
 function Theme()
-	vim.cmd([[colorscheme kanagawa-paper]])
+	vim.cmd([[colorscheme vscode]])
 end
 Theme()
 
