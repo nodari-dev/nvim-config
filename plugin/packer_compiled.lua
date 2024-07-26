@@ -145,6 +145,11 @@ _G.packer_plugins = {
     path = "/Users/I572177/.local/share/nvim/site/pack/packer/start/hlchunk.nvim",
     url = "https://github.com/shellRaining/hlchunk.nvim"
   },
+  ["kanagawa-paper.nvim"] = {
+    loaded = true,
+    path = "/Users/I572177/.local/share/nvim/site/pack/packer/start/kanagawa-paper.nvim",
+    url = "https://github.com/sho-87/kanagawa-paper.nvim"
+  },
   ["lualine.nvim"] = {
     loaded = true,
     path = "/Users/I572177/.local/share/nvim/site/pack/packer/start/lualine.nvim",

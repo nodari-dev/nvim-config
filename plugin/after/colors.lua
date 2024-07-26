@@ -1,5 +1,5 @@
 function Theme()
-	vim.cmd([[colorscheme rose-pine-main]])
+	vim.cmd([[colorscheme kanagawa-paper]])
 end
 Theme()
 
